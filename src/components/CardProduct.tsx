@@ -7,7 +7,7 @@ interface Props {
 }
 const INITIAL_COUNT = 1
 export const CardProduct: React.FC<Props> = ({ product }) => {
-  const [counter, setCounter] = useState(INITIAL_COUNT)
+  const [counter] = useState(INITIAL_COUNT)
   const { title, price, image } = product
   const addProductToCart = (): void => {
     console.log(product)
