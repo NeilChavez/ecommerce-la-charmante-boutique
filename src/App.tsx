@@ -17,7 +17,7 @@ export const App: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-center text-4xl p-8">Le Coin Enchanté</h1>
+      <h1 className="text-center text-4xl p-8">La Charmante Boutique</h1>
       <Filters
         filterSelected={filterSelected}
         minValue={minValue}
