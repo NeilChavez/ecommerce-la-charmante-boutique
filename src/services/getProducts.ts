@@ -4,7 +4,7 @@ export const getProducts = async ({ endpoint }: { endpoint: string }): Promise<P
   try {
     const res = await fetch(endpoint)
     if (!res.ok) {
-      throw new Error('No se puedo obtener los productos!')
+      throw new Error('Failed to retrieve the products!')
     }
     const json: Product[] = await res.json()
     const mappedProducts: Product[] = json.map(product => {
@@ -13,6 +13,8 @@ export const getProducts = async ({ endpoint }: { endpoint: string }): Promise<P
     })
     return mappedProducts
   } catch (e) {
-    throw new Error('No se puedo obtener los productos!')
+    throw new Error(
+      'Something went wrong, and the products could not be retrieved!'
+    )
   }
 }
