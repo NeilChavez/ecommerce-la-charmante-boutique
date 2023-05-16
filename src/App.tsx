@@ -1,6 +1,7 @@
 import { ListProducts } from './components/ListProducts'
 import { Filters } from './components/Filters'
 import { useProducts } from './hooks/useProducts'
+import { Cart } from './components/Cart'
 import './index.css'
 
 export const App: React.FC = () => {
@@ -17,7 +18,12 @@ export const App: React.FC = () => {
 
   return (
     <>
-      <h1 className="text-center text-4xl p-8">La Charmante Boutique</h1>
+      <header className="flex justify-between px-4 pt-4 ">
+        <div className=" flex-grow">
+          <h1 className="text-center text-4xl p-8">La Charmante Boutique</h1>
+        </div>
+        <Cart />
+      </header>
       <Filters
         filterSelected={filterSelected}
         minValue={minValue}
