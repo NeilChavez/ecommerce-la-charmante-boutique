@@ -33,7 +33,6 @@ export const App: React.FC = () => {
           onRangeChange={onRangeChange}
           handleFilterSelecter={handleFilterSelecter}
         />
-
         <ListProducts
           products={products}
           isLoading={isLoading}

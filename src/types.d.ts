@@ -18,4 +18,13 @@ export interface ProductInCart extends Product {
   quantity: number
 }
 
+export interface CartContextValue {
+  cart: ProductInCart[] | null
+  addProductToCart: ({ product }: { product: Product }) => void
+  removeOneItemFromCart: ({ id }: productId) => void
+  removeFromCart: ({ id }: productId) => void
+}
+
 export type FilterValue = typeof CATEGORIES_VALUES[keyof typeof CATEGORIES_VALUES]
+
+export type productId = Pick<Product, 'id'>

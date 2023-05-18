@@ -1,4 +1,3 @@
-import React from 'react'
 import { useCart } from '../hooks/useCart'
 import { CardProduct } from './CardProduct'
 import { Counter } from './Counter'
@@ -31,7 +30,7 @@ export const CartSection: React.FC<Props> = ({ onClose }) => {
       </button>
       <h2 className="text-2xl">Your cart</h2>
       <ul>
-      {cart.map((product) => {
+      {cart?.map((product) => {
         return (
           <li key={product.id}>
             <CardProduct product={product}>

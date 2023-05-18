@@ -1,29 +1,24 @@
-import {
-  type ReactNode,
-  createContext,
-  useState,
-  type Dispatch,
-  type SetStateAction
-} from 'react'
-import { type ProductInCart } from '../types'
+import { type ReactNode, createContext } from 'react'
+import { type CartContextValue } from '../types'
+import { useCartReducer } from '../hooks/useCartReducer'
 
-interface CartContextValue {
-  cart: ProductInCart[] | null
-  setCart: Dispatch<SetStateAction<ProductInCart[] | null>>
-}
 export const CartContext = createContext<CartContextValue | null>(null)
 
 interface Props {
   children: ReactNode
 }
+
 export const CartContextProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useState<ProductInCart[] | null>([])
+  const { cart, addProductToCart, removeOneItemFromCart, removeFromCart } =
+    useCartReducer()
 
   return (
     <CartContext.Provider
       value={{
         cart,
-        setCart
+        addProductToCart,
+        removeOneItemFromCart,
+        removeFromCart
       }}
     >
       {children}
