@@ -10,8 +10,8 @@ Make use of `useContext` to avoid unnecessary prop drilling.
 
 Cart:
 
-- [ ] Allow adding products to the cart
-- [ ] Allow removing products from the cart
-- [ ] Allow modifying the quantity of products in the cart
-- [ ] Synchronize cart changes with the list of products
+- [X] Allow adding products to the cart
+- [x] Allow removing products from the cart
+- [x] Allow modifying the quantity of products in the cart
+- [x] Synchronize cart changes with the list of products
 - [ ] Save the cart in localStorage to restore it on page reload (bonus points)

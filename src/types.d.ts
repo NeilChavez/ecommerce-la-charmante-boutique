@@ -13,4 +13,9 @@ export interface Rating {
   rate: number
   count: number
 }
+
+export interface ProductInCart extends Product {
+  quantity: number
+}
+
 export type FilterValue = typeof CATEGORIES_VALUES[keyof typeof CATEGORIES_VALUES]

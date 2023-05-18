@@ -21,8 +21,6 @@ export const RangeSlider: React.FC<Props> = ({
     left: `${positionBar}%`
   }
 
-  console.log({ maxValue })
-
   return (
     <div className="px-6 py-4">
       <div className="text-sm">

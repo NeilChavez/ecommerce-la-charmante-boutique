@@ -1,4 +1,6 @@
+import { useCart } from '../hooks/useCart'
 import { type Product } from '../types'
+import { AddToCartButton } from './AddToCartButton'
 import { CardProduct } from './CardProduct'
 import { Loader } from './Loader'
 
@@ -8,7 +10,13 @@ interface Props {
   isError: boolean
 }
 
-export const ListProducts: React.FC<Props> = ({ products, isLoading, isError }) => {
+export const ListProducts: React.FC<Props> = ({
+  products,
+  isLoading,
+  isError
+}) => {
+  const { addProductToCart } = useCart()
+
   return (
     <section className="m-auto max-w-3xl ">
       {isLoading && <Loader />}
@@ -17,7 +25,13 @@ export const ListProducts: React.FC<Props> = ({ products, isLoading, isError }) 
         {products?.map((product) => {
           return (
             <li key={product.id}>
-              <CardProduct product={product} />
+              <CardProduct product={product}>
+                <AddToCartButton
+                  handleClick={() => {
+                    addProductToCart({ product })
+                  }}
+                />
+              </CardProduct>
             </li>
           )
         })}

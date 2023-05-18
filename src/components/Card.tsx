@@ -1,24 +1,18 @@
-import { Counter } from './Counter'
-import { CartIcon } from './Icons'
+import { type ReactNode } from 'react'
 
 interface Props {
   image: string
   title: string
   price: number
-  counter: number
-  addProductToCart: () => void
+  children?: ReactNode
 }
 
 export const Card: React.FC<Props> = ({
   image,
   title,
   price,
-  counter,
-  addProductToCart
+  children
 }) => {
-  const handleClick = (): void => {
-    addProductToCart()
-  }
   return (
     <div className="bg-white shadow rounded">
       <div className="h-48 w-full bg-gray-200 flex flex-col justify-center p-4 px-8 ">
@@ -34,15 +28,8 @@ export const Card: React.FC<Props> = ({
         </h1>
         <p className="text-center text-gray-800 mt-1">€{price}</p>
         <div className="inline-flex items-center mt-2">
-          <Counter counter={counter} />
         </div>
-        <button
-          className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
-          onClick={() => { handleClick() }}
-        >
-          Add to order
-          <CartIcon />
-        </button>
+        {children}
       </div>
     </div>
   )

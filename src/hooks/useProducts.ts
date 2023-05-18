@@ -39,8 +39,7 @@ export const useProducts = (): {
       .then((products) => {
         setProducts(products)
       })
-      .catch((e) => {
-        console.log(e)
+      .catch(() => {
         setIsError(true)
       })
       .finally(() => {
