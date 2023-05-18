@@ -8,7 +8,7 @@ const INITIAL_CART_COUNT = 0
 export const Cart: React.FC = () => {
   const [show, setShow] = useState(false)
   const { cart } = useCart()
-  const totalQuantityItems = cart.reduce(
+  const totalQuantityItems = cart?.reduce(
     (accumulator, product) => product.quantity + accumulator,
     INITIAL_CART_COUNT
   )
@@ -31,7 +31,7 @@ export const Cart: React.FC = () => {
       >
         <CartIcon />
 
-        {totalQuantityItems > 0 && (
+        {totalQuantityItems != null && totalQuantityItems > 0 && (
           <div className="absolute rounded-full border-solid bg-red-400 border-2 w-8 h-8 flex justify-center items-center text-white -top-4 -right-4">
             {totalQuantityItems}
           </div>
