@@ -24,7 +24,7 @@ export const Cart: React.FC = () => {
   useClickOutside({ callback: onClose, ref })
 
   return (
-    <div ref={ref} className="inline-block fixed right-8 pt-4">
+    <div ref={ref} className="inline-block">
       <div
         className="relative max-w-max bordern-solid bg-white rounded-full z-50 "
         onClick={toggleShow}
@@ -32,7 +32,7 @@ export const Cart: React.FC = () => {
         <CartIcon />
 
         {totalQuantityItems != null && totalQuantityItems > 0 && (
-          <div className="absolute rounded-full border-solid bg-red-400 border-2 w-8 h-8 flex justify-center items-center text-white -top-4 -right-4">
+          <div className="absolute rounded-full border-solid bg-red-400 border-2 w-6 h-6 flex justify-center items-center text-white -top-2 -right-2 text-xs">
             {totalQuantityItems}
           </div>
         )}

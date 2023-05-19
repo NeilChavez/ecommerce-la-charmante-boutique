@@ -27,7 +27,7 @@ export const Filters: React.FC<Props> = ({
   }
 
   return (
-    <div className="flex gap-8 m-auto max-w-3xl items-center ">
+    <div className="flex m-auto max-w-3xl items-center ">
       <RangeSlider
         minValue={minValue}
         maxValue={maxValue}

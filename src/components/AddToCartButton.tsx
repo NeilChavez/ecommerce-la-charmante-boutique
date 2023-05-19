@@ -7,11 +7,13 @@ interface Props {
 export const AddToCartButton: React.FC<Props> = ({ handleClick }) => {
   return (
     <button
-      className="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 active:bg-blue-700 disabled:opacity-50 mt-4 w-full flex items-center justify-center"
+      className="py-2 px-4 bg-[#222] text-white text-sm hover:bg-[#555] active:bg-[#444] disabled:opacity-50 mt-4 w-full flex items-center justify-center gap-2"
       onClick={handleClick}
     >
       Add to order
-      <CartIcon />
+      <div className="w-6 h-6">
+        <CartIcon />
+      </div>
     </button>
   )
 }
