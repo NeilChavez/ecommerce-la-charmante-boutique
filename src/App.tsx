@@ -1,9 +1,11 @@
 import { ListProducts } from './components/ListProducts'
 import { Filters } from './components/Filters'
 import { useProducts } from './hooks/useProducts'
-import { Cart } from './components/Cart'
-import './index.css'
 import { CartContextProvider } from './context/CartContext'
+import { Hero } from './components/Hero'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
+import './index.css'
 
 export const App: React.FC = () => {
   const {
@@ -18,14 +20,10 @@ export const App: React.FC = () => {
   } = useProducts()
 
   return (
-    <>
+
       <CartContextProvider>
-        <header className="flex justify-between px-4 pt-4 ">
-          <div className=" flex-grow">
-            <h1 className="text-center text-4xl p-8">La Charmante Boutique</h1>
-          </div>
-          <Cart />
-        </header>
+        <Header />
+        <Hero />
         <Filters
           filterSelected={filterSelected}
           minValue={minValue}
@@ -38,7 +36,7 @@ export const App: React.FC = () => {
           isLoading={isLoading}
           isError={isError}
         />
+        <Footer/>
       </CartContextProvider>
-    </>
   )
 }
