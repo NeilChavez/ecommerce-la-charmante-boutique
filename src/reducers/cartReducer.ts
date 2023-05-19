@@ -33,15 +33,21 @@ export const cartReducer = (
       if (isInCart) {
         newCart = state.cart.map((singleProduct) => {
           if (singleProduct.id === payload.id) {
+            const newQuantity = singleProduct.quantity + 1
             return {
               ...singleProduct,
-              quantity: singleProduct.quantity + 1
+              totalPrice: newQuantity * singleProduct.price,
+              quantity: newQuantity
             }
           }
           return singleProduct
         })
       } else {
-        const newProduct: ProductInCart = { ...payload, quantity: 1 }
+        const newProduct: ProductInCart = {
+          ...payload,
+          quantity: 1,
+          totalPrice: payload.price * 1
+        }
         newCart = [...state.cart, newProduct]
       }
       return {
@@ -54,18 +60,22 @@ export const cartReducer = (
         (singleProduct) => singleProduct.id === payload.id
       ) as ProductInCart
       const newCart =
-           productInCart.quantity > 1
-             ? state.cart.map((singleProduct) => {
-               if (singleProduct.id === payload.id) {
-                 // diminuir la cantidad
-                 return {
-                   ...singleProduct,
-                   quantity: singleProduct.quantity - 1
-                 }
-               }
-               return singleProduct
-             })
-             : state.cart.filter((singleProduct) => singleProduct.id !== payload.id)
+        productInCart.quantity > 1
+          ? state.cart.map((singleProduct) => {
+            if (singleProduct.id === payload.id) {
+              // diminuir la cantidad
+              const newQuantity = singleProduct.quantity - 1
+              return {
+                ...singleProduct,
+                totalPrice: newQuantity * singleProduct.price,
+                quantity: newQuantity
+              }
+            }
+            return singleProduct
+          })
+          : state.cart.filter(
+            (singleProduct) => singleProduct.id !== payload.id
+          )
       return {
         ...state,
         cart: newCart

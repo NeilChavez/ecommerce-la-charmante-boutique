@@ -16,6 +16,7 @@ export interface Rating {
 
 export interface ProductInCart extends Product {
   quantity: number
+  totalPrice: number
 }
 
 export interface CartContextValue {
