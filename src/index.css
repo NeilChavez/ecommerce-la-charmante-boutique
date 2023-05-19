@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: "custom sans";
+  src: url("public/fonts/sans-Regular.woff2") format("woff2");
+}
+
+body {
+ font-family: "custom sans";
+}
+
 @layer components {  
    input[type="range"].rangeSlider::-webkit-slider-thumb {
       cursor: pointer;

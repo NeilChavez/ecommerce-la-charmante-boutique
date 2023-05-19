@@ -8,8 +8,11 @@ export default {
       },
       aspectRatio: {
         '16/9': '56.25%' // 16/9 = 0.5625
+      },
+      fontFamily: {
+        customSans: ['custom sans', 'sans-serif']
       }
-    }
-  },
-  plugins: []
+    },
+    plugins: []
+  }
 }
