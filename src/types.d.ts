@@ -20,7 +20,7 @@ export interface ProductInCart extends Product {
 }
 
 export interface CartContextValue {
-  cart: ProductInCart[] | null
+  cart: ProductInCart[]
   addProductToCart: ({ product }: { product: Product }) => void
   removeOneItemFromCart: ({ id }: productId) => void
   removeFromCart: ({ id }: productId) => void
