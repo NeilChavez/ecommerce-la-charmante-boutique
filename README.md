@@ -14,4 +14,4 @@ Cart:
 - [x] Allow removing products from the cart
 - [x] Allow modifying the quantity of products in the cart
 - [x] Synchronize cart changes with the list of products
-- [ ] Save the cart in localStorage to restore it on page reload (bonus points)
+- [x] Save the cart in localStorage to restore it on page reload (bonus points)
