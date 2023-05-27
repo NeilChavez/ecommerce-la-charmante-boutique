@@ -3,8 +3,13 @@ import { cartReducer } from '../reducers/cartReducer'
 import { type productId, type Product, type ProductInCart } from '../types'
 import { TYPES } from '../actions/cartActions'
 
+const getFromLocalStorage = (): ProductInCart[] => {
+  const cart = window.localStorage.getItem('cart')
+  return cart != null ? JSON.parse(cart) : []
+}
+
 const initialState = {
-  cart: []
+  cart: getFromLocalStorage()
 }
 
 interface cartReducerResults {

@@ -18,6 +18,10 @@ interface StateValue {
   cart: ProductInCart[]
 }
 
+const setInLocalStorage = (key: string, cart: ProductInCart[]): void => {
+  window.localStorage.setItem(key, JSON.stringify(cart))
+}
+
 export const cartReducer = (
   state: StateValue,
   action: AddAction | RemoveOneAction | RemoveProductAction
@@ -50,6 +54,8 @@ export const cartReducer = (
         }
         newCart = [...state.cart, newProduct]
       }
+
+      setInLocalStorage('cart', newCart)
       return {
         ...state,
         cart: newCart
@@ -63,7 +69,6 @@ export const cartReducer = (
         productInCart.quantity > 1
           ? state.cart.map((singleProduct) => {
             if (singleProduct.id === payload.id) {
-              // diminuir la cantidad
               const newQuantity = singleProduct.quantity - 1
               return {
                 ...singleProduct,
@@ -76,6 +81,7 @@ export const cartReducer = (
           : state.cart.filter(
             (singleProduct) => singleProduct.id !== payload.id
           )
+      setInLocalStorage('cart', newCart)
       return {
         ...state,
         cart: newCart
@@ -85,6 +91,7 @@ export const cartReducer = (
       const newCart = state.cart.filter(
         (singleProduct) => singleProduct.id !== payload.id
       )
+      setInLocalStorage('cart', newCart)
       return {
         ...state,
         cart: newCart
