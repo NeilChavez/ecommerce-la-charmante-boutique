@@ -6,7 +6,7 @@ export const Hero: React.FC = () => {
           <h2>Explore, Inspire, and Elevate Your Style</h2>
         </div>
         <img
-          src="./public/assets/woman_hero.png"
+          src="/assets/woman_hero.png"
           alt="hero womand"
           className=" object-contain"
         />
