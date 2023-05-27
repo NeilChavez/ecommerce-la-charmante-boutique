@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "custom sans";
-  src: url("public/fonts/sans-Regular.woff2") format("woff2");
+  src: url("/fonts/sans-Regular.woff2") format("woff2");
 }
 
 body {
